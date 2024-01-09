@@ -1,0 +1,28 @@
+<!--<p style="color: green"><%= notice %></p>-->
+
+<div class="jumbotron">
+<% render @friend %>
+
+<h1><%= @friend.first_name + ' ' + @friend.last_name %></h1>
+<h6><%= @friend.email %> | <%= @friend.phone %> | <%= @friend.twitter %></h6>
+<br>
+
+<div>
+  <%= link_to "Edit", edit_friend_path(@friend), class:"btn btn-secondary" %> |
+  <%= link_to "Back", friends_path, class:"btn btn-dark"%>
+  <br><br>  
+  <% button_to "Delete", @friend, method: :delete, class:"btn btn-dark" %>
+</div>
+
+  <%= button_to "Delete", @friend,class: "btn btn-outline-danger", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
+
+</div>
+
+<style type="text/css">
+  .jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: .3rem;
+}
+</style>
